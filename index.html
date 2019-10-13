@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-input[type="checkbox"] {
-    display: block;
-}
-.container {
-display: flex;
-}
-
-.container > div {
-padding: 10px;
-}
-</style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$('input[type="checkbox"]').on('change', function() {
-$('div#print').html("0x" +
-parseInt(
-$('input[name="' + this.name + '"]')
-.map(function (a, b) {
-return b.checked === true ? 1 : 0 
-})
-.get()
-.join(""), 2).toString(16).toUpperCase())
-});
-
-});
-</script>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        input[type="checkbox"] {
+            display: block;
+        }
+        
+        .container {
+            display: flex;
+        }
+        
+        .container > div {
+            padding: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('input[type="checkbox"]').on('change', function() {
+                $('div#print').html("0x" +
+                    parseInt(
+                        $('input[name="' + this.name + '"]')
+                        .map(function(a, b) {
+                            return b.checked === true ? 1 : 0
+                        })
+                        .get()
+                        .join(""), 2).toString(16).toUpperCase())
+            });
+        });
+    </script>
 </head>
+
 <body>
-
-<div class="container">
-<div>
-<input type="checkbox" name="port">7th</input>
-</div>
-<div>
-<input type="checkbox" name="port">6th</input>
-</div>
-<div>
-<input type="checkbox" name="port">5th</input>
-</div>
-<div>
-<input type="checkbox" name="port">4th</input>
-</div>
-<div>
-<input type="checkbox" name="port">3th</input>
-</div>
-<div>
-<input type="checkbox" name="port">2th</input>
-</div>
-<div>
-<input type="checkbox" name="port">1th</input>
-</div>
-<div>
-<input type="checkbox" name="port">0th</input>
-</div>
-</div>
-<div id="print"></div>
-
-
+    <div class="container">
+        <div>
+            <input type="checkbox" name="port">7th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">6th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">5th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">4th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">3th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">2th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">1th</input>
+        </div>
+        <div>
+            <input type="checkbox" name="port">0th</input>
+        </div>
+    </div>
+    <div id="print"></div>
 </body>
 </html>
