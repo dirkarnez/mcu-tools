@@ -20,17 +20,41 @@
         }
     </style>
     <script>
-        $(document).ready(function() {
-            $('input[type="checkbox"]').on('change', function() {
-                $('div#print').html("0x" +
+
+        function getValue() {
+            return "0x" +
                     parseInt(
-                        $('input[name="' + this.name + '"]')
+                        $('input[name="port"]')
                         .map(function(a, b) {
                             return b.checked === true ? 1 : 0
                         })
                         .get()
-                        .join(""), 2).toString(16).toUpperCase())
+                        .join(""), 2).toString(16).toUpperCase()
+        }
+        $(document).ready(function() {
+            $('input[type="checkbox"]').on('change', function() {
+                $('div#print').html(getValue())
             });
+
+            $("#btnCopy").on("click", function() {
+                window.getSelection().removeAllRanges();
+                var print = document.getElementById("print");
+
+                var textNode = document.createTextNode(getValue());
+                print.innerHTML = "";
+                print.appendChild(textNode);
+                var range = document.createRange();
+                range.selectNode(textNode);
+                window.getSelection().addRange(range);
+                try {
+                    var successful = document.execCommand('copy');
+                    var msg = successful ? 'successful' : 'unsuccessful';
+                    alert('Copied ' + msg);
+                } catch (err) {
+                    alert('execCommand Error', err);
+                }
+                window.getSelection().removeAllRanges();
+            })
         });
     </script>
 </head>
@@ -63,5 +87,6 @@
         </div>
     </div>
     <div id="print"></div>
+    <button id="btnCopy">copy</button>
 </body>
 </html>
