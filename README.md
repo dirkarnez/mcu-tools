@@ -7,3 +7,6 @@ mcu-tools
 - [PWM Driving of Motors: Relationship between PWM Period and Electrical Time Constant of the Motor | Evolution and Kinds of Motors | TechWeb](https://techweb.rohm.com/trend/column/866/)
 - Duty Cycle is a percentage
 - τ is in seconds
+- pwm + rc
+- [Motor interfaces and PWM frequencies | Video | TI.com](https://www.ti.com/video/6272403276001)
+- [Basics of PWM (Pulse Width Modulation) | Arduino Documentation](https://docs.arduino.cc/learn/microcontrollers/analog-output/)
